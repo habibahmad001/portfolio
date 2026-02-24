@@ -77,6 +77,22 @@
         </div>
     </section>
 
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h2>Looking for a Senior Full Stack Developer?</h2>
+                    <p>I'm available for freelance projects and full-time opportunities. Let's build something amazing together!</p>
+                </div>
+                <div class="banner-cta">
+                    <a href="#contact" class="btn btn-primary">Hire Me</a>
+                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -301,7 +317,7 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title"><span class="gradient-text">Experience & Education</span></h2>
-            <p class="section-subtitle">12+ years of professional experience with international clients</p>
+            <p class="section-subtitle">16+ years of professional experience with international clients</p>
 
             <div class="experience-grid">
                 <!-- Work Experience -->
@@ -506,9 +522,9 @@
             <h2 class="section-title"><span class="gradient-text">Featured Projects</span></h2>
             <p class="section-subtitle">A showcase of enterprise applications I've developed</p>
 
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Audits IQ -->
+                <div class="project-card" data-project="1">
                     <div class="project-gradient purple"></div>
                     <div class="project-content">
                         <div class="project-header">
@@ -520,8 +536,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            A comprehensive auditing system with integrated ticketing system similar to Jira.
-                            Built with Next.js frontend and Laravel backend, featuring real-time updates and complex workflow management.
+                            Auditing system with integrated ticketing system similar to Jira. Built with Next.js frontend and Laravel backend with real-time updates.
                         </p>
                         <div class="project-tech">
                             <span>Next.js</span>
@@ -532,8 +547,8 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
+                <!-- Process Intel -->
+                <div class="project-card" data-project="2">
                     <div class="project-gradient blue"></div>
                     <div class="project-content">
                         <div class="project-header">
@@ -545,8 +560,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Product quality assurance system with React.js admin panel and React Native mobile inspector app.
-                            Features include inspection management, reporting, and real-time synchronization.
+                            Product quality assurance system with React.js admin panel and React Native mobile inspector app for inspections.
                         </p>
                         <div class="project-tech">
                             <span>React JS</span>
@@ -557,8 +571,8 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card">
+                <!-- Off Chain Yield -->
+                <div class="project-card" data-project="3">
                     <div class="project-gradient green"></div>
                     <div class="project-content">
                         <div class="project-header">
@@ -570,8 +584,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Cryptocurrency trading platform with multiple crypto products for online buying and selling.
-                            Built with React.js frontend and Laravel backend with secure payment integration.
+                            Cryptocurrency trading platform with multiple crypto products for online buying and selling with secure payment integration.
                         </p>
                         <div class="project-tech">
                             <span>React JS</span>
@@ -582,9 +595,33 @@
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="project-card">
+                <!-- Scenfo -->
+                <div class="project-card" data-project="4">
                     <div class="project-gradient red"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Scenfo</h3>
+                            <div class="project-links">
+                                <a href="https://scenfo.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Laravel-based system with 2 main panels for users and admins with comprehensive MySQL backend implementation.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Learn Academy -->
+                <div class="project-card">
+                    <div class="project-gradient orange"></div>
                     <div class="project-content">
                         <div class="project-header">
                             <h3>Next Learn Academy</h3>
@@ -595,8 +632,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Comprehensive LMS platform with 4 main panels for learners, instructors, and admins.
-                            Features include course management, progress tracking, and certification system.
+                            LMS platform with 4 main panels for learners, instructors, and admins with course management and certification system.
                         </p>
                         <div class="project-tech">
                             <span>Laravel</span>
@@ -607,9 +643,57 @@
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+                <!-- Office Admin Training -->
                 <div class="project-card">
-                    <div class="project-gradient orange"></div>
+                    <div class="project-gradient cyan"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Office Admin Training</h3>
+                            <div class="project-links">
+                                <a href="https://demo.officeadmintraining.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            LMS system for online teaching with 4 panels for learners, instructors, and admins. Upgraded from Laravel 6.x to 8.x.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Care Academy -->
+                <div class="project-card">
+                    <div class="project-gradient purple"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Care Academy</h3>
+                            <div class="project-links">
+                                <a href="https://demo.careacademyuk.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            LMS platform with 4 panels for learners, instructors, and admins. Built in Laravel 6.x, upgraded to 8.x.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shop din Cloud -->
+                <div class="project-card">
+                    <div class="project-gradient blue"></div>
                     <div class="project-content">
                         <div class="project-header">
                             <h3>Shop din Cloud</h3>
@@ -620,8 +704,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            In-house cloud services platform built with Python/Django featuring virtual machines,
-                            servers management, admin panel, and extensive cloud service offerings.
+                            In-house cloud services platform with Python/Django featuring virtual machines, servers, and admin panel.
                         </p>
                         <div class="project-tech">
                             <span>Python</span>
@@ -632,9 +715,57 @@
                     </div>
                 </div>
 
-                <!-- Project 6 -->
+                <!-- Mono Loop -->
                 <div class="project-card">
-                    <div class="project-gradient cyan"></div>
+                    <div class="project-gradient green"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Mono Loop</h3>
+                            <div class="project-links">
+                                <a href="http://www.monoloop.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Service providing website where users can create templates for their sites and download them. Includes admin panel.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>jQuery</span>
+                            <span>PHP 7.x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goods Insured -->
+                <div class="project-card">
+                    <div class="project-gradient red"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Goods Insured</h3>
+                            <div class="project-links">
+                                <a href="https://www.goodsinsured.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Laravel-based site with 500+ content-based pages. User and admin panels with dynamic content management.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>jQuery</span>
+                            <span>PHP 7.x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- eUniversity London -->
+                <div class="project-card">
+                    <div class="project-gradient orange"></div>
                     <div class="project-content">
                         <div class="project-header">
                             <h3>eUniversity London</h3>
@@ -645,8 +776,7 @@
                             </div>
                         </div>
                         <p class="project-description">
-                            Large-scale LMS system with 1000+ courses and 4000+ active students.
-                            Deployed on AWS EC2 for optimal performance with comprehensive backend implementation.
+                            Large-scale LMS with 1000+ courses and 4000+ active students. Deployed on AWS EC2 for optimal performance.
                         </p>
                         <div class="project-tech">
                             <span>Laravel</span>
@@ -656,10 +786,278 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Jobs Today -->
+                <div class="project-card">
+                    <div class="project-gradient cyan"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Jobs Today</h3>
+                            <div class="project-links">
+                                <a href="http://www.jobstoday.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Job posting and searching website with admin and user backend panels. Deployed on AWS EC2.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>AWS EC2</span>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sage In Home -->
+                <div class="project-card">
+                    <div class="project-gradient purple"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Sage In Home</h3>
+                            <div class="project-links">
+                                <a href="http://sageinhome.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            CMS-based site that fetches products from AMAZON using APIs, creates XML, and displays on store.
+                        </p>
+                        <div class="project-tech">
+                            <span>WordPress</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vivataxes -->
+                <div class="project-card">
+                    <div class="project-gradient blue"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Vivataxes</h3>
+                            <div class="project-links">
+                                <a href="https://www.vivataxes.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            WordPress-based site with custom post types, ACF features, and Elementor integration.
+                        </p>
+                        <div class="project-tech">
+                            <span>WordPress</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>ACF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colbrowcare -->
+                <div class="project-card">
+                    <div class="project-gradient green"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Colbrowcare</h3>
+                            <div class="project-links">
+                                <a href="https://colbrowcare.com.au" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            WordPress CMS site with custom post types and ACF features for content management.
+                        </p>
+                        <div class="project-tech">
+                            <span>WordPress</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>ACF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lebo Group -->
+                <div class="project-card">
+                    <div class="project-gradient red"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Lebo Group</h3>
+                            <div class="project-links">
+                                <a href="https://lebogroup.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Information site built with WordPress and Divi theme that pulls videos from client's YouTube channel.
+                        </p>
+                        <div class="project-tech">
+                            <span>WordPress</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>Divi Theme</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pixbo -->
+                <div class="project-card">
+                    <div class="project-gradient orange"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Pixbo</h3>
+                            <div class="project-links">
+                                <a href="http://194.68.59.6/~pixbo" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Event listing site with calendar where all events are created by admin. Includes admin panel.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>OOP</span>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Staging Mono Loop -->
+                <div class="project-card">
+                    <div class="project-gradient cyan"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Staging Mono Loop</h3>
+                            <div class="project-links">
+                                <a href="http://staging.monoloop.com/auth/login" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Enhanced version of Mono Loop with social media connectivity and online streaming features.
+                        </p>
+                        <div class="project-tech">
+                            <span>Drupal</span>
+                            <span>MySQL</span>
+                            <span>Omega</span>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Autodesk -->
+                <div class="project-card">
+                    <div class="project-gradient purple"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Autodesk Store</h3>
+                            <div class="project-links">
+                                <a href="http://www.autodesk.com/store" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Ecommerce site with multiple stores, languages, and versions. Separate frontend and backend management.
+                        </p>
+                        <div class="project-tech">
+                            <span>CQ</span>
+                            <span>Digital River</span>
+                            <span>jQuery</span>
+                            <span>Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vm Kings -->
+                <div class="project-card">
+                    <div class="project-gradient blue"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Vm Kings</h3>
+                            <div class="project-links">
+                                <a href="https://vmkings.com" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            E-commerce website for selling online servers and virtual machines with strong payment process.
+                        </p>
+                        <div class="project-tech">
+                            <span>WHMCS</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>jQuery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills247 -->
+                <div class="project-card">
+                    <div class="project-gradient green"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Skills247</h3>
+                            <div class="project-links">
+                                <a href="https://demo.skills247.co.uk" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            Backend admin portal to manage 10+ LMS sites with awarding bodies, certificate management, and operations.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel 8.x</span>
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Career Monster -->
+                <div class="project-card">
+                    <div class="project-gradient red"></div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Career Monster</h3>
+                            <div class="project-links">
+                                <a href="https://demo.careermonster.co.uk" target="_blank" rel="noopener noreferrer" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="project-description">
+                            LMS system with 4 panels for learners, instructors, and admins. Upgraded from Laravel 6.x to 8.x.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>Git</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="view-more">
-                <a href="https://github.com/habibahmad001" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <button id="loadMoreBtn" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i>
+                    Load More Projects
+                </button>
+                <a href="https://github.com/habibahmad001" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: none;" id="githubBtn">
                     <i class="fab fa-github"></i>
                     View All Projects on GitHub
                 </a>
@@ -735,8 +1133,15 @@
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/habibahmed001@gmail.com" method="POST">
                         <h3>Send a Message</h3>
+
+                        <!-- FormSubmit configuration -->
+                        <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_next" value="">
 
                         <div class="form-group">
                             <label for="name">Your Name</label>

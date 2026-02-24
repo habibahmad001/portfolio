@@ -115,8 +115,6 @@ const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const btnText = submitBtn.querySelector('.btn-text');
         const originalText = btnText.textContent;
@@ -125,21 +123,11 @@ if (contactForm) {
         btnText.textContent = 'Sending...';
         submitBtn.disabled = true;
 
-        // Simulate form submission
+        // FormSubmit will handle the actual submission
+        // Just show success feedback after a short delay
         setTimeout(() => {
-            btnText.textContent = 'Message Sent!';
-            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
-
-            // Reset form
-            contactForm.reset();
-
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                btnText.textContent = originalText;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-            }, 3000);
-        }, 1500);
+            btnText.textContent = 'Redirecting...';
+        }, 1000);
     });
 }
 
@@ -210,6 +198,57 @@ timelineItems.forEach((item, index) => {
     item.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
     timelineObserver.observe(item);
 });
+
+// ===== Load More Projects Functionality =====
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const githubBtn = document.getElementById('githubBtn');
+const projectsGrid = document.getElementById('projectsGrid');
+let visibleProjects = 4;
+const projectsPerLoad = 4;
+
+// Hide projects beyond the first 4
+function initProjects() {
+    projectCards.forEach((card, index) => {
+        if (index >= visibleProjects) {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Load more projects
+loadMoreBtn?.addEventListener('click', () => {
+    const totalProjects = projectCards.length;
+    const remainingProjects = totalProjects - visibleProjects;
+    const projectsToShow = Math.min(projectsPerLoad, remainingProjects);
+
+    // Show next batch of projects
+    for (let i = visibleProjects; i < visibleProjects + projectsToShow; i++) {
+        if (projectCards[i]) {
+            projectCards[i].style.display = 'block';
+            // Add animation
+            projectCards[i].style.animation = 'fadeInUp 0.5s ease-out';
+        }
+    }
+
+    visibleProjects += projectsToShow;
+
+    // Scroll to the first newly loaded project
+    if (visibleProjects > projectsPerLoad) {
+        projectCards[visibleProjects - projectsToShow].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+
+    // Hide load more button if all projects are shown
+    if (visibleProjects >= totalProjects) {
+        loadMoreBtn.style.display = 'none';
+        githubBtn.style.display = 'inline-flex';
+    }
+});
+
+// Initialize projects on page load
+initProjects();
 
 // ===== Dynamic Footer Year =====
 const footerYear = document.querySelector('.footer p');
