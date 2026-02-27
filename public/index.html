@@ -14,17 +14,36 @@
         <div class="nav-container">
             <a href="#home" class="logo">HA</a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <div class="language-switcher">
+                    <button class="lang-btn" id="langBtn" title="Change Language">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-code" id="currentLang">EN</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <button class="lang-option" data-lang="en">
+                            <span class="lang-flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                        </button>
+                        <button class="lang-option" data-lang="de">
+                            <span class="lang-flag">🇩🇪</span>
+                            <span class="lang-name">Deutsch</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -44,16 +63,20 @@
             <p class="hero-subtitle"><span id="typewriter"></span><span class="cursor">|</span></p>
             <div class="hero-location">
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Punjab, Pakistan</span>
+                <span data-i18n="hero.location">Punjab, Pakistan</span>
             </div>
-            <p class="hero-description">
+            <p class="hero-description" data-i18n="hero.description">
                 Senior Full Stack Developer with 16+ years of experience in web development.
                 Passionate about building exceptional digital experiences using PHP, Laravel, React.js,
                 Node.js, Python, and Django.
             </p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#projects" class="btn btn-secondary">View Projects</a>
+                <a href="#contact" class="btn btn-primary" data-i18n="hero.getInTouch">Get In Touch</a>
+                <a href="#projects" class="btn btn-secondary" data-i18n="hero.viewProjects">View Projects</a>
+                <a href="cv.html" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="hero.downloadCV">Download CV</span>
+                </a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/habibahmad001" target="_blank" rel="noopener noreferrer">
@@ -82,12 +105,12 @@
         <div class="container">
             <div class="banner-content">
                 <div class="banner-text">
-                    <h2>Looking for a Senior Full Stack Developer?</h2>
-                    <p>I'm available for freelance projects and full-time opportunities. Let's build something amazing together!</p>
+                    <h2 data-i18n="banner.title">Looking for a Senior Full Stack Developer?</h2>
+                    <p data-i18n="banner.subtitle">I'm available for freelance projects and full-time opportunities. Let's build something amazing together!</p>
                 </div>
                 <div class="banner-cta">
-                    <a href="#contact" class="btn btn-primary">Hire Me</a>
-                    <a href="#projects" class="btn btn-secondary">View My Work</a>
+                    <a href="#contact" class="btn btn-primary" data-i18n="banner.hireMe">Hire Me</a>
+                    <a href="#projects" class="btn btn-secondary" data-i18n="banner.viewWork">View My Work</a>
                 </div>
             </div>
         </div>
@@ -96,47 +119,47 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title"><span class="gradient-text">About Me</span></h2>
+            <h2 class="section-title"><span class="gradient-text" data-i18n="about.title">About Me</span></h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p data-i18n="about.para1">
                         I'm a Senior Full Stack Developer with over 16 years of experience in web development.
                         I specialize in PHP, Laravel (8+ years), React.js (2+ years), Node.js (2+ years), and
                         have extensive knowledge of Python, Django, Linux, AWS, and modern web technologies.
                     </p>
-                    <p>
+                    <p data-i18n="about.para2">
                         I hold a B.S. in Computer Science from Punjab University (2003-2007). Throughout my career,
                         I've worked with international clients from UK, US, and Canada, delivering high-quality
                         web solutions including LMS systems, e-commerce platforms, and complex enterprise applications.
                     </p>
                     <p class="career-objective">
-                        <strong>Career Objective:</strong> To gain confidence and fame using my potential in the field
-                        of "Web Development", and express my innovative creative skills for self and company growth.
+                        <strong data-i18n="about.careerLabel">Career Objective:</strong> <span data-i18n="about.careerObjective">To gain confidence and fame using my potential in the field
+                        of "Web Development", and express my innovative creative skills for self and company growth.</span>
                     </p>
                     <div class="about-details">
                         <div class="detail-item">
-                            <span class="detail-label">Name:</span>
+                            <span class="detail-label" data-i18n="about.name">Name:</span>
                             <span class="detail-value">Habib Ahmad</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Email:</span>
+                            <span class="detail-label" data-i18n="about.email">Email:</span>
                             <span class="detail-value">habibahmed001@gmail.com</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Phone:</span>
+                            <span class="detail-label" data-i18n="about.phone">Phone:</span>
                             <span class="detail-value">+92 322 8594463</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Location:</span>
+                            <span class="detail-label" data-i18n="about.location">Location:</span>
                             <span class="detail-value">Punjab, Pakistan</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Experience:</span>
+                            <span class="detail-label" data-i18n="about.experience">Experience:</span>
                             <span class="detail-value">16+ Years</span>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-label">Availability:</span>
-                            <span class="detail-value">Open to opportunities</span>
+                            <span class="detail-label" data-i18n="about.availability">Availability:</span>
+                            <span class="detail-value" data-i18n="about.available">Open to opportunities</span>
                         </div>
                     </div>
                 </div>
@@ -147,14 +170,14 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title"><span class="gradient-text">Skills & Expertise</span></h2>
-            <p class="section-subtitle">12+ years of experience with modern web technologies</p>
+            <h2 class="section-title"><span class="gradient-text" data-i18n="skills.title">Skills & Expertise</span></h2>
+            <p class="section-subtitle" data-i18n="skills.subtitle">12+ years of experience with modern web technologies</p>
 
             <div class="skills-grid">
                 <!-- Backend -->
                 <div class="skill-card">
                     <div class="skill-icon">⚙️</div>
-                    <h3 class="skill-category">Backend Development</h3>
+                    <h3 class="skill-category" data-i18n="skills.backend">Backend Development</h3>
                     <div class="skill-list">
                         <div class="skill-item">
                             <span class="skill-name">PHP</span>
@@ -197,7 +220,7 @@
                 <!-- Frontend -->
                 <div class="skill-card">
                     <div class="skill-icon">🎨</div>
-                    <h3 class="skill-category">Frontend Development</h3>
+                    <h3 class="skill-category" data-i18n="skills.frontend">Frontend Development</h3>
                     <div class="skill-list">
                         <div class="skill-item">
                             <span class="skill-name">React.js</span>
@@ -240,7 +263,7 @@
                 <!-- Tools & DevOps -->
                 <div class="skill-card">
                     <div class="skill-icon">🛠️</div>
-                    <h3 class="skill-category">Tools & DevOps</h3>
+                    <h3 class="skill-category" data-i18n="skills.tools">Tools & DevOps</h3>
                     <div class="skill-list">
                         <div class="skill-item">
                             <span class="skill-name">Git/Bitbucket</span>
@@ -284,14 +307,14 @@
             <!-- Additional Skills -->
             <div class="additional-skills">
                 <div class="additional-card">
-                    <h4 class="additional-title">Languages</h4>
+                    <h4 class="additional-title" data-i18n="skills.languages">Languages</h4>
                     <div class="tag-container">
                         <span class="tag">English (Professional)</span>
                         <span class="tag">Urdu (Native)</span>
                     </div>
                 </div>
                 <div class="additional-card">
-                    <h4 class="additional-title">Soft Skills</h4>
+                    <h4 class="additional-title" data-i18n="skills.softSkills">Soft Skills</h4>
                     <div class="tag-container">
                         <span class="tag">Team Leadership</span>
                         <span class="tag">Project Management</span>
@@ -300,7 +323,7 @@
                     </div>
                 </div>
                 <div class="additional-card">
-                    <h4 class="additional-title">Other Skills</h4>
+                    <h4 class="additional-title" data-i18n="skills.otherSkills">Other Skills</h4>
                     <div class="tag-container">
                         <span class="tag">REST APIs</span>
                         <span class="tag">MVC Architecture</span>
@@ -1068,13 +1091,13 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title"><span class="gradient-text">Get In Touch</span></h2>
-            <p class="section-subtitle">Have a project in mind or want to collaborate? Feel free to reach out!</p>
+            <h2 class="section-title"><span class="gradient-text" data-i18n="contact.title">Get In Touch</span></h2>
+            <p class="section-subtitle" data-i18n="contact.subtitle">Have a project in mind or want to collaborate? Feel free to reach out!</p>
 
             <div class="contact-grid">
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
+                    <h3 data-i18n="contact.letsConnect">Let's Connect</h3>
 
                     <div class="contact-items">
                         <a href="mailto:habibahmed001@gmail.com" class="contact-item">
@@ -1082,7 +1105,7 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="contact-details">
-                                <span class="contact-label">Email</span>
+                                <span class="contact-label" data-i18n="contact.email">Email</span>
                                 <span class="contact-value">habibahmed001@gmail.com</span>
                             </div>
                         </a>
@@ -1092,7 +1115,7 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="contact-details">
-                                <span class="contact-label">Phone</span>
+                                <span class="contact-label" data-i18n="contact.phone">Phone</span>
                                 <span class="contact-value">+92 322 8594463</span>
                             </div>
                         </a>
@@ -1102,7 +1125,7 @@
                                 <i class="fas fa-globe"></i>
                             </div>
                             <div class="contact-details">
-                                <span class="contact-label">Website</span>
+                                <span class="contact-label" data-i18n="contact.website">Website</span>
                                 <span class="contact-value">habib.spyko</span>
                             </div>
                         </a>
@@ -1112,14 +1135,14 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="contact-details">
-                                <span class="contact-label">Location</span>
+                                <span class="contact-label" data-i18n="contact.location">Location</span>
                                 <span class="contact-value">Punjab, Pakistan</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="social-follow">
-                        <h4>Follow Me</h4>
+                        <h4 data-i18n="contact.followMe">Follow Me</h4>
                         <div class="social-icons">
                             <a href="https://github.com/habibahmad001" target="_blank" rel="noopener noreferrer" class="social-icon">
                                 <i class="fab fa-github"></i>
@@ -1129,12 +1152,19 @@
                             </a>
                         </div>
                     </div>
+
+                    <div class="cv-download-section">
+                        <a href="cv.html" target="_blank" class="btn btn-secondary btn-full">
+                            <i class="fas fa-download"></i>
+                            <span data-i18n="contact.downloadCV">Download My CV</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
                     <form class="contact-form" id="contactForm" action="https://formsubmit.co/habibahmed001@gmail.com" method="POST">
-                        <h3>Send a Message</h3>
+                        <h3 data-i18n="contact.sendMessage">Send a Message</h3>
 
                         <!-- FormSubmit configuration -->
                         <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
@@ -1144,27 +1174,27 @@
                         <input type="hidden" name="_next" value="">
 
                         <div class="form-group">
-                            <label for="name">Your Name</label>
+                            <label for="name" data-i18n="contact.form.name">Your Name</label>
                             <input type="text" id="name" name="name" required placeholder="John Doe">
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Your Email</label>
+                            <label for="email" data-i18n="contact.form.email">Your Email</label>
                             <input type="email" id="email" name="email" required placeholder="john@example.com">
                         </div>
 
                         <div class="form-group">
-                            <label for="subject">Subject</label>
+                            <label for="subject" data-i18n="contact.form.subject">Subject</label>
                             <input type="text" id="subject" name="subject" placeholder="Project Inquiry">
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message" data-i18n="contact.form.message">Message</label>
                             <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-full">
-                            <span class="btn-text">Send Message</span>
+                            <span class="btn-text" data-i18n="contact.form.send">Send Message</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -1174,8 +1204,8 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 Habib Ahmad. All rights reserved.</p>
-            <p>Built with HTML, CSS, and JavaScript</p>
+            <p data-i18n="footer.copyright">&copy; 2025 Habib Ahmad. All rights reserved.</p>
+            <p data-i18n="footer.builtWith">Built with HTML, CSS, and JavaScript</p>
         </footer>
     </section>
 
