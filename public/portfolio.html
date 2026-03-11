@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Habib Ahmad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Back Navigation -->
+    <div class="portfolio-nav">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <h1 class="portfolio-title">Project Showcase</h1>
+        <div class="language-switcher">
+            <button class="lang-btn" id="langBtn">
+                <span class="lang-flag">🇬🇧</span>
+                <span class="lang-code">EN</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="hero-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="container">
+            <h1 class="hero-title" data-i18n="portfolio.heroTitle">My Work</h1>
+            <p class="hero-subtitle" data-i18n="portfolio.heroSubtitle">A showcase of projects built with Laravel, WordPress, and modern web technologies</p>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Projects
+                </button>
+                <button class="filter-btn" data-filter="laravel">
+                    <i class="fab fa-laravel"></i> Laravel
+                </button>
+                <button class="filter-btn" data-filter="wordpress">
+                    <i class="fab fa-wordpress"></i> WordPress
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-showcase">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+
+                <!-- Laravel Projects -->
+                <div class="project-card laravel" data-category="laravel">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://monoloop.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Monoloop">
+                        <div class="project-overlay">
+                            <a href="https://monoloop.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag laravel-tag">Laravel</span>
+                            <span class="tag">SaaS</span>
+                        </div>
+                        <h3>Monoloop</h3>
+                        <p>Sophisticated marketing automation and attribution platform for tracking customer journeys across multiple touchpoints.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Marketing Automation</li>
+                            <li><i class="fas fa-check-circle"></i> Attribution Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card laravel" data-category="laravel">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://nextlearnacademy.com/&screenshot=true&meta=false&embed=screenshot.url" alt="NextLearn Academy">
+                        <div class="project-overlay">
+                            <a href="https://nextlearnacademy.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag laravel-tag">Laravel</span>
+                            <span class="tag">LMS</span>
+                            <span class="tag">Education</span>
+                        </div>
+                        <h3>NextLearn Academy</h3>
+                        <p>Comprehensive Learning Management System for delivering online courses and educational content.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Course Management</li>
+                            <li><i class="fas fa-check-circle"></i> Student Progress Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Interactive Learning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- WordPress Projects -->
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://www.shirlyns.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Shirlyns">
+                        <div class="project-overlay">
+                            <a href="https://www.shirlyns.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">E-Commerce</span>
+                        </div>
+                        <h3>Shirlyns</h3>
+                        <p>Elegant e-commerce platform for beauty and skincare products with seamless checkout experience.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> WooCommerce Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Product Catalog</li>
+                            <li><i class="fas fa-check-circle"></i> Payment Gateway</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://promediarep.com/&screenshot=true&meta=false&embed=screenshot.url" alt="ProMediaRep">
+                        <div class="project-overlay">
+                            <a href="https://promediarep.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Media</span>
+                        </div>
+                        <h3>ProMediaRep</h3>
+                        <p>Professional media representation platform showcasing talent and media services.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Portfolio Display</li>
+                            <li><i class="fas fa-check-circle"></i> Media Gallery</li>
+                            <li><i class="fas fa-check-circle"></i> Contact Management</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://homesolutionz.com/&screenshot=true&meta=false&embed=screenshot.url" alt="HomeSolutionz">
+                        <div class="project-overlay">
+                            <a href="https://homesolutionz.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Real Estate</span>
+                        </div>
+                        <h3>HomeSolutionz</h3>
+                        <p>Real estate platform connecting buyers with properties and home solutions.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Property Listings</li>
+                            <li><i class="fas fa-check-circle"></i> Search & Filter</li>
+                            <li><i class="fas fa-check-circle"></i> Agent Directory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://potstocknews.com&screenshot=true&meta=false&embed=screenshot.url" alt="PotStockNews">
+                        <div class="project-overlay">
+                            <a href="https://potstocknews.com" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">News</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                        <h3>PotStockNews</h3>
+                        <p>Financial news platform covering cannabis stocks and market analysis.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> News Publishing</li>
+                            <li><i class="fas fa-check-circle"></i> Stock Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Market Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://optionsgeek.com&screenshot=true&meta=false&embed=screenshot.url" alt="OptionsGeek">
+                        <div class="project-overlay">
+                            <a href="https://optionsgeek.com" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Finance</span>
+                            <span class="tag">Trading</span>
+                        </div>
+                        <h3>OptionsGeek</h3>
+                        <p>Options trading education and analysis platform for financial enthusiasts.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Educational Content</li>
+                            <li><i class="fas fa-check-circle"></i> Market Insights</li>
+                            <li><i class="fas fa-check-circle"></i> Trading Tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://stockstreetnews.com&screenshot=true&meta=false&embed=screenshot.url" alt="StockStreetNews">
+                        <div class="project-overlay">
+                            <a href="https://stockstreetnews.com" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">News</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                        <h3>StockStreetNews</h3>
+                        <p>Financial news portal delivering stock market updates and investment insights.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Real-time Updates</li>
+                            <li><i class="fas fa-check-circle"></i> Market Data</li>
+                            <li><i class="fas fa-check-circle"></i> Investment Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://microsmallcap.com&screenshot=true&meta=false&embed=screenshot.url" alt="MicroSmallCap">
+                        <div class="project-overlay">
+                            <a href="https://microsmallcap.com" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Finance</span>
+                            <span class="tag">Investment</span>
+                        </div>
+                        <h3>MicroSmallCap</h3>
+                        <p>Platform covering micro and small-cap stocks with research and analysis.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Stock Research</li>
+                            <li><i class="fas fa-check-circle"></i> Market Coverage</li>
+                            <li><i class="fas fa-check-circle"></i> Investment Tools</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://streetsignals.com/&screenshot=true&meta=false&embed=screenshot.url" alt="StreetSignals">
+                        <div class="project-overlay">
+                            <a href="https://streetsignals.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Finance</span>
+                            <span class="tag">Trading</span>
+                        </div>
+                        <h3>StreetSignals</h3>
+                        <p>Financial signals and trading recommendations platform for active traders.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Trading Signals</li>
+                            <li><i class="fas fa-check-circle"></i> Market Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Portfolio Tracking</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://sistel.red-apple.it/&screenshot=true&meta=false&embed=screenshot.url" alt="Sistel">
+                        <div class="project-overlay">
+                            <a href="https://sistel.red-apple.it/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Business</span>
+                        </div>
+                        <h3>Sistel</h3>
+                        <p>Corporate website for Italian telecommunications and technology solutions company.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Company Profile</li>
+                            <li><i class="fas fa-check-circle"></i> Service Showcase</li>
+                            <li><i class="fas fa-check-circle"></i> Contact Portal</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://belabeautycollege.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Bela Beauty College">
+                        <div class="project-overlay">
+                            <a href="https://belabeautycollege.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Education</span>
+                        </div>
+                        <h3>Bela Beauty College</h3>
+                        <p>Beauty college website showcasing courses, programs, and enrollment information.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Course Catalog</li>
+                            <li><i class="fas fa-check-circle"></i> Enrollment System</li>
+                            <li><i class="fas fa-check-circle"></i> Gallery Showcase</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://www.junkdeposit.com/&screenshot=true&meta=false&embed=screenshot.url" alt="JunkDeposit">
+                        <div class="project-overlay">
+                            <a href="https://www.junkdeposit.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Services</span>
+                        </div>
+                        <h3>JunkDeposit</h3>
+                        <p>Junk removal and disposal services platform with booking and quote systems.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Service Booking</li>
+                            <li><i class="fas fa-check-circle"></i> Quote Calculator</li>
+                            <li><i class="fas fa-check-circle"></i> Service Areas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="https://api.microlink.io/?url=https://fastbeedumpsters.com/&screenshot=true&meta=false&embed=screenshot.url" alt="FastBeeDumpsters">
+                        <div class="project-overlay">
+                            <a href="https://fastbeedumpsters.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Services</span>
+                        </div>
+                        <h3>FastBeeDumpsters</h3>
+                        <p>Dumpster rental services website with booking system and service area information.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Rental Booking</li>
+                            <li><i class="fas fa-check-circle"></i> Size Selection</li>
+                            <li><i class="fas fa-check-circle"></i> Location Coverage</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <div class="container">
+            <p>&copy; 2025 Habib Ahmad. All rights reserved.</p>
+            <p>Built with passion and expertise</p>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+</body>
+</html>
