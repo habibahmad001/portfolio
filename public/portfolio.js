@@ -5,34 +5,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
 
+    // Function to filter projects
+    function filterProjects(filterValue) {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+
+        // Add active class to corresponding button
+        filterButtons.forEach(btn => {
+            if (btn.getAttribute('data-filter') === filterValue) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Filter projects
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            const categories = category ? category.split(' ') : [];
+
+            if (filterValue === 'all' || categories.includes(filterValue)) {
+                card.classList.remove('hidden');
+                card.classList.remove('hiding');
+                // Re-trigger animation
+                card.style.animation = 'none';
+                setTimeout(() => {
+                    card.style.animation = 'fadeInUp 0.6s ease forwards';
+                }, 10);
+            } else {
+                card.classList.add('hiding');
+                setTimeout(() => {
+                    card.classList.add('hidden');
+                }, 300);
+            }
+        });
+
+        // Update URL without page reload
+        const url = new URL(window.location);
+        if (filterValue === 'all') {
+            url.searchParams.delete('tab');
+        } else {
+            url.searchParams.set('tab', filterValue);
+        }
+        window.history.pushState({}, '', url);
+    }
+
+    // Check URL parameter on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const tabParam = urlParams.get('tab');
+    if (tabParam) {
+        // Apply filter from URL
+        filterProjects(tabParam);
+    }
+
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            button.classList.add('active');
-
             const filterValue = button.getAttribute('data-filter');
-
-            // Filter projects
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-
-                if (filterValue === 'all' || category === filterValue) {
-                    card.classList.remove('hidden');
-                    card.classList.remove('hiding');
-                    // Re-trigger animation
-                    card.style.animation = 'none';
-                    setTimeout(() => {
-                        card.style.animation = 'fadeInUp 0.6s ease forwards';
-                    }, 10);
-                } else {
-                    card.classList.add('hiding');
-                    setTimeout(() => {
-                        card.classList.add('hidden');
-                    }, 300);
-                }
-            });
+            filterProjects(filterValue);
         });
     });
 
@@ -166,5 +193,25 @@ function changeImage(imageSrc, thumbnail) {
     thumbnails.forEach(thumb => thumb.classList.remove('active'));
     if (thumbnail) {
         thumbnail.classList.add('active');
+    }
+}
+
+// Scroll to Gallery Function
+function scrollToGallery() {
+    const ilumedCard = document.querySelector('.project-card.laravel.react');
+    if (ilumedCard) {
+        ilumedCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+        // Highlight the gallery temporarily
+        const galleryContainer = ilumedCard.querySelector('.gallery-container');
+        if (galleryContainer) {
+            galleryContainer.style.boxShadow = '0 0 20px rgba(97, 218, 251, 0.8)';
+            setTimeout(() => {
+                galleryContainer.style.boxShadow = '';
+            }, 2000);
+        }
     }
 }
