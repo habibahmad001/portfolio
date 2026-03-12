@@ -1,5 +1,80 @@
 // ===== Portfolio Showcase JavaScript =====
 
+// Global functions - must be defined before DOMContentLoaded
+// Gallery Image Changer Function
+window.changeImage = function(imageSrc, thumbnail) {
+    // Update main image
+    const mainImage = document.getElementById('ilumed-main-image');
+    if (mainImage) {
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+            mainImage.src = imageSrc;
+            mainImage.style.opacity = '1';
+        }, 150);
+    }
+
+    // Update active thumbnail
+    const thumbnails = document.querySelectorAll('.gallery-thumb');
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+    if (thumbnail) {
+        thumbnail.classList.add('active');
+    }
+};
+
+// Scroll to Gallery Function
+window.scrollToGallery = function() {
+    console.log('Gallery button clicked!'); // Debug log
+
+    // Find the ilumed card specifically by looking for the gallery container
+    const allCards = document.querySelectorAll('.project-card');
+    let ilumedCard = null;
+
+    allCards.forEach(card => {
+        const title = card.querySelector('h3');
+        if (title && title.textContent.trim() === 'ilumed') {
+            ilumedCard = card;
+        }
+    });
+
+    console.log('Found ilumed card:', ilumedCard); // Debug log
+
+    if (ilumedCard) {
+        // Scroll to the card
+        ilumedCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+
+        // Highlight the gallery more prominently
+        const galleryContainer = ilumedCard.querySelector('.gallery-container');
+        const galleryThumbs = ilumedCard.querySelector('.gallery-thumbs');
+
+        console.log('Gallery container:', galleryContainer); // Debug log
+
+        if (galleryContainer) {
+            // Add pulsing animation
+            galleryContainer.style.animation = 'pulse 1s ease-in-out 3';
+            galleryContainer.style.boxShadow = '0 0 30px rgba(97, 218, 251, 1)';
+
+            // Scroll thumbnails into view
+            if (galleryThumbs) {
+                galleryThumbs.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }
+
+            // Remove highlight after animation
+            setTimeout(() => {
+                galleryContainer.style.animation = '';
+                galleryContainer.style.boxShadow = '';
+            }, 3000);
+        }
+    } else {
+        console.log('ilumed card not found!'); // Debug log
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     // Filter functionality
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -184,77 +259,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-// Gallery Image Changer Function
-function changeImage(imageSrc, thumbnail) {
-    // Update main image
-    const mainImage = document.getElementById('ilumed-main-image');
-    if (mainImage) {
-        mainImage.style.opacity = '0';
-        setTimeout(() => {
-            mainImage.src = imageSrc;
-            mainImage.style.opacity = '1';
-        }, 150);
-    }
-
-    // Update active thumbnail
-    const thumbnails = document.querySelectorAll('.gallery-thumb');
-    thumbnails.forEach(thumb => thumb.classList.remove('active'));
-    if (thumbnail) {
-        thumbnail.classList.add('active');
-    }
-}
-
-// Scroll to Gallery Function
-function scrollToGallery() {
-    console.log('Gallery button clicked!'); // Debug log
-
-    // Find the ilumed card specifically by looking for the gallery container
-    const allCards = document.querySelectorAll('.project-card');
-    let ilumedCard = null;
-
-    allCards.forEach(card => {
-        const title = card.querySelector('h3');
-        if (title && title.textContent.trim() === 'ilumed') {
-            ilumedCard = card;
-        }
-    });
-
-    console.log('Found ilumed card:', ilumedCard); // Debug log
-
-    if (ilumedCard) {
-        // Scroll to the card
-        ilumedCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
-
-        // Highlight the gallery more prominently
-        const galleryContainer = ilumedCard.querySelector('.gallery-container');
-        const galleryThumbs = ilumedCard.querySelector('.gallery-thumbs');
-
-        console.log('Gallery container:', galleryContainer); // Debug log
-
-        if (galleryContainer) {
-            // Add pulsing animation
-            galleryContainer.style.animation = 'pulse 1s ease-in-out 3';
-            galleryContainer.style.boxShadow = '0 0 30px rgba(97, 218, 251, 1)';
-
-            // Scroll thumbnails into view
-            if (galleryThumbs) {
-                galleryThumbs.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
-            }
-
-            // Remove highlight after animation
-            setTimeout(() => {
-                galleryContainer.style.animation = '';
-                galleryContainer.style.boxShadow = '';
-            }, 3000);
-        }
-    } else {
-        console.log('ilumed card not found!'); // Debug log
-    }
-}
