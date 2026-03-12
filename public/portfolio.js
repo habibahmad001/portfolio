@@ -148,3 +148,23 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Gallery Image Changer Function
+function changeImage(imageSrc, thumbnail) {
+    // Update main image
+    const mainImage = document.getElementById('ilumed-main-image');
+    if (mainImage) {
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+            mainImage.src = imageSrc;
+            mainImage.style.opacity = '1';
+        }, 150);
+    }
+
+    // Update active thumbnail
+    const thumbnails = document.querySelectorAll('.gallery-thumb');
+    thumbnails.forEach(thumb => thumb.classList.remove('active'));
+    if (thumbnail) {
+        thumbnail.classList.add('active');
+    }
+}
