@@ -1,7 +1,23 @@
 // ===== Portfolio Showcase JavaScript =====
 
+// Gallery data for ilumed project
+const ilumedGalleryImages = [
+    { src: 'images/ilumed/patientDashboard.png', title: 'Patient Dashboard' },
+    { src: 'images/ilumed/login.png', title: 'Login' },
+    { src: 'images/ilumed/patiend-dashboard.png', title: 'Patient Dashboard' },
+    { src: 'images/ilumed/adt.png', title: 'ADT' },
+    { src: 'images/ilumed/analytics.png', title: 'Analytics' },
+    { src: 'images/ilumed/clinical.png', title: 'Clinical' },
+    { src: 'images/ilumed/patient-search.png', title: 'Patient Search' },
+    { src: 'images/ilumed/patiend-detail.png', title: 'Patient Detail' },
+    { src: 'images/ilumed/schadular.png', title: 'Scheduler' },
+    { src: 'images/ilumed/embaded.png', title: 'Embedded' }
+];
+
+let currentImageIndex = 0;
+
 // Global functions - must be defined before DOMContentLoaded
-// Gallery Image Changer Function
+// Gallery Image Changer Function (for inline gallery)
 window.changeImage = function(imageSrc, thumbnail) {
     // Update main image
     const mainImage = document.getElementById('ilumed-main-image');
@@ -21,59 +37,129 @@ window.changeImage = function(imageSrc, thumbnail) {
     }
 };
 
-// Scroll to Gallery Function
+// Open Fancybox Gallery
 window.scrollToGallery = function() {
-    console.log('Gallery button clicked!'); // Debug log
+    console.log('Opening fancybox gallery!'); // Debug log
 
-    // Find the ilumed card specifically by looking for the gallery container
-    const allCards = document.querySelectorAll('.project-card');
-    let ilumedCard = null;
+    const modal = document.getElementById('gallery-modal');
+    const mainImage = document.getElementById('gallery-main-image');
+    const thumbnailsContainer = document.getElementById('gallery-thumbnails');
 
-    allCards.forEach(card => {
-        const title = card.querySelector('h3');
-        if (title && title.textContent.trim() === 'ilumed') {
-            ilumedCard = card;
-        }
+    if (!modal || !mainImage || !thumbnailsContainer) {
+        console.error('Gallery modal elements not found!'); // Debug log
+        return;
+    }
+
+    // Reset to first image
+    currentImageIndex = 0;
+
+    // Set main image
+    mainImage.src = ilumedGalleryImages[0].src;
+    mainImage.alt = ilumedGalleryImages[0].title;
+
+    // Clear and populate thumbnails
+    thumbnailsContainer.innerHTML = '';
+    ilumedGalleryImages.forEach((img, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = img.src;
+        thumb.alt = img.title;
+        thumb.className = 'gallery-thumb-modal' + (index === 0 ? ' active' : '');
+        thumb.onclick = () => showGalleryImage(index);
+        thumbnailsContainer.appendChild(thumb);
     });
 
-    console.log('Found ilumed card:', ilumedCard); // Debug log
+    // Show modal
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.classList.add('active');
+    }, 10);
 
-    if (ilumedCard) {
-        // Scroll to the card
-        ilumedCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
 
-        // Highlight the gallery more prominently
-        const galleryContainer = ilumedCard.querySelector('.gallery-container');
-        const galleryThumbs = ilumedCard.querySelector('.gallery-thumbs');
+    console.log('Gallery opened successfully!'); // Debug log
+};
 
-        console.log('Gallery container:', galleryContainer); // Debug log
+// Close Gallery
+window.closeGallery = function() {
+    const modal = document.getElementById('gallery-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
 
-        if (galleryContainer) {
-            // Add pulsing animation
-            galleryContainer.style.animation = 'pulse 1s ease-in-out 3';
-            galleryContainer.style.boxShadow = '0 0 30px rgba(97, 218, 251, 1)';
-
-            // Scroll thumbnails into view
-            if (galleryThumbs) {
-                galleryThumbs.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
-            }
-
-            // Remove highlight after animation
-            setTimeout(() => {
-                galleryContainer.style.animation = '';
-                galleryContainer.style.boxShadow = '';
-            }, 3000);
-        }
-    } else {
-        console.log('ilumed card not found!'); // Debug log
+        // Restore body scroll
+        document.body.style.overflow = '';
     }
 };
+
+// Show specific image in gallery
+window.showGalleryImage = function(index) {
+    if (index < 0 || index >= ilumedGalleryImages.length) return;
+
+    currentImageIndex = index;
+
+    const mainImage = document.getElementById('gallery-main-image');
+    const thumbnails = document.querySelectorAll('.gallery-thumb-modal');
+
+    if (mainImage) {
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+            mainImage.src = ilumedGalleryImages[index].src;
+            mainImage.alt = ilumedGalleryImages[index].title;
+            mainImage.style.opacity = '1';
+        }, 150);
+    }
+
+    // Update active thumbnail
+    thumbnails.forEach((thumb, i) => {
+        if (i === index) {
+            thumb.classList.add('active');
+            thumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        } else {
+            thumb.classList.remove('active');
+        }
+    });
+};
+
+// Navigate gallery
+window.navigateGallery = function(direction) {
+    const newIndex = currentImageIndex + direction;
+
+    if (newIndex < 0) {
+        showGalleryImage(ilumedGalleryImages.length - 1); // Go to last image
+    } else if (newIndex >= ilumedGalleryImages.length) {
+        showGalleryImage(0); // Go to first image
+    } else {
+        showGalleryImage(newIndex);
+    }
+};
+
+// Keyboard navigation for gallery
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('gallery-modal');
+    if (modal && modal.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeGallery();
+        } else if (e.key === 'ArrowLeft') {
+            navigateGallery(-1);
+        } else if (e.key === 'ArrowRight') {
+            navigateGallery(1);
+        }
+    }
+});
+
+// Close gallery when clicking outside image
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('gallery-modal');
+    if (modal && modal.classList.contains('active')) {
+        const modalContent = modal.querySelector('.gallery-modal-content');
+        if (e.target === modal) {
+            closeGallery();
+        }
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     // Filter functionality
@@ -97,13 +183,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Filter projects
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
-            const categories = category ? category.split(' ') : [];
+            const categories = category ? category.trim().split(/\s+/) : [];
 
-            console.log('Card categories:', categories); // Debug log
+            console.log('Filter:', filterValue, '| Card categories:', categories, '| Match:', categories.includes(filterValue)); // Debug log
 
             if (filterValue === 'all' || categories.includes(filterValue)) {
                 card.classList.remove('hidden');
                 card.classList.remove('hiding');
+                card.style.display = ''; // Ensure display is not set to none
                 // Re-trigger animation
                 card.style.animation = 'none';
                 setTimeout(() => {
@@ -113,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('hiding');
                 setTimeout(() => {
                     card.classList.add('hidden');
+                    card.style.display = 'none';
                 }, 300);
             }
         });

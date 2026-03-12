@@ -57,7 +57,7 @@
             <div class="projects-grid" id="projectsGrid">
 
                 <!-- Laravel Projects -->
-                <div class="project-card laravel" data-category="laravel">
+                <div class="project-card wordpress" data-category="wordpress">
                     <div class="project-image">
                         <img src="https://api.microlink.io/?url=https://monoloop.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Monoloop">
                         <div class="project-overlay">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag laravel-tag">Laravel</span>
+                            <span class="tag wordpress-tag">WordPress</span>
                             <span class="tag">SaaS</span>
                         </div>
                         <h3>Monoloop</h3>
@@ -331,7 +331,7 @@
 
                 <div class="project-card wordpress" data-category="wordpress">
                     <div class="project-image">
-                        <img src="https://api.microlink.io/?url=https://www.belabeautycollege.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Bela Beauty College">
+                        <img src="images/belabeautycollege.png" alt="Bela Beauty College">
                         <div class="project-overlay">
                             <a href="https://www.belabeautycollege.com/" target="_blank" class="view-btn">
                                 <i class="fas fa-external-link-alt"></i> Visit Site
@@ -499,7 +499,7 @@
                             <a href="https://brainstream.braintreemd.com/mra" target="_blank" class="view-btn">
                                 <i class="fas fa-external-link-alt"></i> Visit Site
                             </a>
-                            <button class="view-btn gallery-btn" onclick="scrollToGallery()">
+                            <button class="view-btn gallery-btn" onclick="event.preventDefault(); event.stopPropagation(); scrollToGallery();">
                                 <i class="fas fa-images"></i> View Gallery
                             </button>
                         </div>
@@ -531,6 +531,23 @@
             <p>Built with passion and expertise</p>
         </div>
     </footer>
+
+    <!-- Fancybox Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <button class="gallery-close" onclick="closeGallery()">&times;</button>
+            <button class="gallery-nav gallery-prev" onclick="navigateGallery(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="gallery-image-container">
+                <img id="gallery-main-image" src="" alt="Gallery Image">
+            </div>
+            <button class="gallery-nav gallery-next" onclick="navigateGallery(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="gallery-thumbnails" id="gallery-thumbnails"></div>
+        </div>
+    </div>
 
     <script src="portfolio.js"></script>
 </body>
