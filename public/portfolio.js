@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to filter projects
     function filterProjects(filterValue) {
+        console.log('Filtering by:', filterValue); // Debug log
+
         // Remove active class from all buttons
         filterButtons.forEach(btn => btn.classList.remove('active'));
 
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
             const categories = category ? category.split(' ') : [];
+
+            console.log('Card categories:', categories); // Debug log
 
             if (filterValue === 'all' || categories.includes(filterValue)) {
                 card.classList.remove('hidden');
@@ -51,10 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check URL parameter on page load
     const urlParams = new URLSearchParams(window.location.search);
     const tabParam = urlParams.get('tab');
-    if (tabParam) {
-        // Apply filter from URL
-        filterProjects(tabParam);
-    }
+
+    console.log('URL tab parameter:', tabParam); // Debug log
+
+    // Apply filter from URL after a small delay to ensure DOM is ready
+    setTimeout(() => {
+        if (tabParam) {
+            filterProjects(tabParam);
+        }
+    }, 100);
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -198,20 +207,54 @@ function changeImage(imageSrc, thumbnail) {
 
 // Scroll to Gallery Function
 function scrollToGallery() {
-    const ilumedCard = document.querySelector('.project-card.laravel.react');
+    console.log('Gallery button clicked!'); // Debug log
+
+    // Find the ilumed card specifically by looking for the gallery container
+    const allCards = document.querySelectorAll('.project-card');
+    let ilumedCard = null;
+
+    allCards.forEach(card => {
+        const title = card.querySelector('h3');
+        if (title && title.textContent.trim() === 'ilumed') {
+            ilumedCard = card;
+        }
+    });
+
+    console.log('Found ilumed card:', ilumedCard); // Debug log
+
     if (ilumedCard) {
+        // Scroll to the card
         ilumedCard.scrollIntoView({
             behavior: 'smooth',
             block: 'center'
         });
 
-        // Highlight the gallery temporarily
+        // Highlight the gallery more prominently
         const galleryContainer = ilumedCard.querySelector('.gallery-container');
+        const galleryThumbs = ilumedCard.querySelector('.gallery-thumbs');
+
+        console.log('Gallery container:', galleryContainer); // Debug log
+
         if (galleryContainer) {
-            galleryContainer.style.boxShadow = '0 0 20px rgba(97, 218, 251, 0.8)';
+            // Add pulsing animation
+            galleryContainer.style.animation = 'pulse 1s ease-in-out 3';
+            galleryContainer.style.boxShadow = '0 0 30px rgba(97, 218, 251, 1)';
+
+            // Scroll thumbnails into view
+            if (galleryThumbs) {
+                galleryThumbs.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }
+
+            // Remove highlight after animation
             setTimeout(() => {
+                galleryContainer.style.animation = '';
                 galleryContainer.style.boxShadow = '';
-            }, 2000);
+            }, 3000);
         }
+    } else {
+        console.log('ilumed card not found!'); // Debug log
     }
 }
