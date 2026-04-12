@@ -219,6 +219,54 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ===== Profile Image Loading Fix =====
+document.addEventListener('DOMContentLoaded', () => {
+    const profilePic = document.getElementById('profilePic');
+    const avatar = document.querySelector('.avatar');
+
+    if (profilePic) {
+        // Ensure avatar is visible even if image takes time to load
+        if (avatar) {
+            avatar.style.visibility = 'visible';
+        }
+
+        // Add load event listener
+        profilePic.addEventListener('load', function() {
+            this.style.opacity = '1';
+            if (avatar) {
+                avatar.style.opacity = '1';
+            }
+        });
+
+        // If image is already loaded (from cache)
+        if (profilePic.complete) {
+            profilePic.style.opacity = '1';
+            if (avatar) {
+                avatar.style.opacity = '1';
+            }
+        }
+
+        // Fallback: if image doesn't load within 3 seconds, show the avatar anyway
+        setTimeout(() => {
+            if (avatar && getComputedStyle(avatar).opacity === '0') {
+                avatar.style.opacity = '1';
+            }
+        }, 3000);
+    }
+
+    // Final fallback: Ensure all hero elements are visible after 5 seconds
+    setTimeout(() => {
+        const hero = document.querySelector('.hero');
+        const heroContent = document.querySelector('.hero-content');
+        const heroTitle = document.querySelector('.hero-title');
+
+        if (hero) hero.style.opacity = '1';
+        if (heroContent) heroContent.style.opacity = '1';
+        if (heroTitle) heroTitle.style.opacity = '1';
+        if (avatar) avatar.style.opacity = '1';
+    }, 5000);
+});
+
 // ===== Navbar Scroll Effect =====
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;

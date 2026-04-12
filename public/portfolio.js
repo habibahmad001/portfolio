@@ -14,7 +14,30 @@ const ilumedGalleryImages = [
     { src: 'images/ilumed/embaded.png', title: 'Embedded' }
 ];
 
+// Gallery data for icd project
+const icdGalleryImages = [
+    { src: 'images/icd.gov/1.jpg', title: 'ICD Dashboard' },
+    { src: 'images/icd.gov/2.jpg', title: 'Services Portal' },
+    { src: 'images/icd.gov/3.jpg', title: 'Citizen Services' },
+    { src: 'images/icd.gov/4.jpg', title: 'Government Resources' },
+    { src: 'images/icd.gov/5.jpg', title: 'Information Center' },
+    { src: 'images/icd.gov/6.jpg', title: 'Online Services' },
+    { src: 'images/icd.gov/7.jpg', title: 'Service Directory' },
+    { src: 'images/icd.gov/8.jpg', title: 'User Portal' },
+    { src: 'images/icd.gov/9.jpg', title: 'Government Applications' },
+    { src: 'images/icd.gov/10.jpg', title: 'Citizen Dashboard' },
+    { src: 'images/icd.gov/11.jpg', title: 'Service Request' },
+    { src: 'images/icd.gov/12.jpg', title: 'Information Hub' },
+    { src: 'images/icd.gov/13.jpg', title: 'Government Portal' }
+];
+
+// Gallery data for demo project (video)
+const demoGalleryImages = [
+    { src: 'images/demo.mp4', title: 'Dynamic Product Management Demo', type: 'video' }
+];
+
 let currentImageIndex = 0;
+let currentGalleryType = 'ilumed'; // Track which gallery is currently open
 
 // Global functions - must be defined before DOMContentLoaded
 // Gallery Image Changer Function (for inline gallery)
@@ -38,35 +61,65 @@ window.changeImage = function(imageSrc, thumbnail) {
 };
 
 // Open Fancybox Gallery
-window.scrollToGallery = function() {
-    console.log('Opening fancybox gallery!'); // Debug log
+window.scrollToGallery = function(galleryType = 'ilumed') {
+    console.log('Opening fancybox gallery for:', galleryType); // Debug log
 
     const modal = document.getElementById('gallery-modal');
-    const mainImage = document.getElementById('gallery-main-image');
     const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+    const imageContainer = document.querySelector('.gallery-image-container');
 
-    if (!modal || !mainImage || !thumbnailsContainer) {
+    if (!modal || !thumbnailsContainer || !imageContainer) {
         console.error('Gallery modal elements not found!'); // Debug log
         return;
     }
 
+    // Determine which gallery to use
+    let galleryImages;
+    if (galleryType === 'icd') {
+        galleryImages = icdGalleryImages;
+    } else if (galleryType === 'demo') {
+        galleryImages = demoGalleryImages;
+    } else {
+        galleryImages = ilumedGalleryImages;
+    }
+
+    // Store current gallery type for navigation
+    currentGalleryType = galleryType;
+
     // Reset to first image
     currentImageIndex = 0;
 
-    // Set main image
-    mainImage.src = ilumedGalleryImages[0].src;
-    mainImage.alt = ilumedGalleryImages[0].title;
+    // Check if first item is video
+    const firstItem = galleryImages[0];
+    if (firstItem.type === 'video') {
+        // For video, create video element
+        imageContainer.innerHTML = `
+            <video id="gallery-main-video" src="${firstItem.src}" controls autoplay style="max-width: 100%; max-height: 80vh; border-radius: 8px;"></video>
+        `;
+    } else {
+        // Restore/create image element
+        imageContainer.innerHTML = '<img id="gallery-main-image" src="" alt="Gallery Image" style="opacity: 0;">';
+        const img = document.getElementById('gallery-main-image');
+        img.src = firstItem.src;
+        img.alt = firstItem.title;
+        // Fade in effect
+        setTimeout(() => {
+            img.style.opacity = '1';
+        }, 50);
+    }
 
     // Clear and populate thumbnails
     thumbnailsContainer.innerHTML = '';
-    ilumedGalleryImages.forEach((img, index) => {
-        const thumb = document.createElement('img');
-        thumb.src = img.src;
-        thumb.alt = img.title;
-        thumb.className = 'gallery-thumb-modal' + (index === 0 ? ' active' : '');
-        thumb.onclick = () => showGalleryImage(index);
-        thumbnailsContainer.appendChild(thumb);
-    });
+    if (galleryImages.length > 1) {
+        galleryImages.forEach((img, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = img.type === 'video' ? 'images/video-placeholder.jpg' : img.src;
+            thumb.alt = img.title;
+            thumb.className = 'gallery-thumb-modal' + (index === 0 ? ' active' : '');
+            thumb.onclick = () => showGalleryImage(index, galleryType);
+            thumbnailsContainer.appendChild(thumb);
+        });
+    }
 
     // Show modal
     modal.style.display = 'flex';
@@ -95,21 +148,47 @@ window.closeGallery = function() {
 };
 
 // Show specific image in gallery
-window.showGalleryImage = function(index) {
-    if (index < 0 || index >= ilumedGalleryImages.length) return;
+window.showGalleryImage = function(index, galleryType = 'ilumed') {
+    // Determine which gallery to use
+    let galleryImages;
+    if (galleryType === 'icd') {
+        galleryImages = icdGalleryImages;
+    } else if (galleryType === 'demo') {
+        galleryImages = demoGalleryImages;
+    } else {
+        galleryImages = ilumedGalleryImages;
+    }
+
+    if (index < 0 || index >= galleryImages.length) return;
 
     currentImageIndex = index;
 
-    const mainImage = document.getElementById('gallery-main-image');
+    const item = galleryImages[index];
+    const container = document.querySelector('.gallery-image-container');
     const thumbnails = document.querySelectorAll('.gallery-thumb-modal');
 
-    if (mainImage) {
-        mainImage.style.opacity = '0';
+    // Clear container and add appropriate element
+    container.innerHTML = '';
+    if (item.type === 'video') {
+        const video = document.createElement('video');
+        video.src = item.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.id = 'gallery-main-video';
+        video.style.cssText = 'max-width: 100%; max-height: 80vh; border-radius: 8px;';
+        container.appendChild(video);
+    } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.title;
+        img.id = 'gallery-main-image';
+        img.style.opacity = '0';
+        container.appendChild(img);
+
+        // Fade in effect for images
         setTimeout(() => {
-            mainImage.src = ilumedGalleryImages[index].src;
-            mainImage.alt = ilumedGalleryImages[index].title;
-            mainImage.style.opacity = '1';
-        }, 150);
+            img.style.opacity = '1';
+        }, 50);
     }
 
     // Update active thumbnail
@@ -125,14 +204,27 @@ window.showGalleryImage = function(index) {
 
 // Navigate gallery
 window.navigateGallery = function(direction) {
+    // Use the currently stored gallery type
+    const galleryType = currentGalleryType;
+
+    // Determine which gallery to use
+    let galleryImages;
+    if (galleryType === 'icd') {
+        galleryImages = icdGalleryImages;
+    } else if (galleryType === 'demo') {
+        galleryImages = demoGalleryImages;
+    } else {
+        galleryImages = ilumedGalleryImages;
+    }
+
     const newIndex = currentImageIndex + direction;
 
     if (newIndex < 0) {
-        showGalleryImage(ilumedGalleryImages.length - 1); // Go to last image
-    } else if (newIndex >= ilumedGalleryImages.length) {
-        showGalleryImage(0); // Go to first image
+        showGalleryImage(galleryImages.length - 1, galleryType); // Go to last image
+    } else if (newIndex >= galleryImages.length) {
+        showGalleryImage(0, galleryType); // Go to first image
     } else {
-        showGalleryImage(newIndex);
+        showGalleryImage(newIndex, galleryType);
     }
 };
 

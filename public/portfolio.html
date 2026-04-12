@@ -47,6 +47,9 @@
                 <button class="filter-btn" data-filter="react">
                     <i class="fab fa-react"></i> React
                 </button>
+                <button class="filter-btn" data-filter="python">
+                    <i class="fab fa-python"></i> Python
+                </button>
             </div>
         </div>
     </section>
@@ -57,7 +60,36 @@
             <div class="projects-grid" id="projectsGrid">
 
                 <!-- Laravel Projects -->
-                <div class="project-card wordpress" data-category="wordpress">
+                <div class="project-card laravel" data-category="laravel" data-gallery="icd">
+                    <div class="project-image">
+                        <img src="images/icd.gov.ae.jpg" alt="ICD">
+                        <div class="project-overlay">
+                            <a href="https://icd.gov.ae/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                            <button class="view-btn gallery-btn" onclick="event.preventDefault(); event.stopPropagation(); scrollToGallery('icd');">
+                                <i class="fas fa-images"></i> View Gallery
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag laravel-tag">Laravel</span>
+                            <span class="tag">Government</span>
+                            <span class="tag">Services</span>
+                        </div>
+                        <h3>ICD</h3>
+                        <p>Official UAE government portal providing comprehensive citizen services and information.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Active Directory Login</li>
+                            <li><i class="fas fa-check-circle"></i> Citizen Services</li>
+                            <li><i class="fas fa-check-circle"></i> Information Portal</li>
+                            <li><i class="fas fa-check-circle"></i> Government Resources</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card laravel" data-category="laravel">
                     <div class="project-image">
                         <img src="https://api.microlink.io/?url=https://monoloop.com/&screenshot=true&meta=false&embed=screenshot.url" alt="Monoloop">
                         <div class="project-overlay">
@@ -68,7 +100,7 @@
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag laravel-tag">Laravel</span>
                             <span class="tag">SaaS</span>
                         </div>
                         <h3>Monoloop</h3>
@@ -204,6 +236,32 @@
                             <li><i class="fas fa-check-circle"></i> Real-time News Feed</li>
                             <li><i class="fas fa-check-circle"></i> Market Analytics</li>
                             <li><i class="fas fa-check-circle"></i> Project Database</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card laravel" data-category="laravel" data-gallery="demo">
+                    <div class="project-image">
+                        <img src="./images/bristolharborgroup.com.jpg" alt="Dynamic Product Management System">
+                        <div class="project-overlay">
+                            <button class="view-btn gallery-btn" onclick="event.preventDefault(); event.stopPropagation(); scrollToGallery('demo');">
+                                <i class="fas fa-play-circle"></i> Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag laravel-tag">Laravel</span>
+                            <span class="tag">AJAX</span>
+                            <span class="tag">Dynamic</span>
+                        </div>
+                        <h3>Dynamic Product Management System</h3>
+                        <p>Modern Laravel application featuring AJAX-based form submissions, SweetAlert notifications, and fully dynamic product management.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> AJAX Form Submission</li>
+                            <li><i class="fas fa-check-circle"></i> SweetAlert Notifications</li>
+                            <li><i class="fas fa-check-circle"></i> Dynamic Product CRUD</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time Updates</li>
                         </ul>
                     </div>
                 </div>
@@ -778,6 +836,61 @@
                             <li><i class="fas fa-check-circle"></i> Patient Management</li>
                             <li><i class="fas fa-check-circle"></i> Clinical Documentation</li>
                             <li><i class="fas fa-check-circle"></i> Analytics Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card wordpress" data-category="wordpress">
+                    <div class="project-image">
+                        <img src="images/colbrowcare.com.au.jpg" alt="Colbrow Care">
+                        <div class="project-overlay">
+                            <a href="https://colbrowcare.com.au/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag wordpress-tag">WordPress</span>
+                            <span class="tag">Elementor</span>
+                            <span class="tag">Modern Design</span>
+                            <span class="tag">Extensive Backend</span>
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Medical</span>
+                        </div>
+                        <h3>Colbrow Care</h3>
+                        <p>Healthcare and medical services platform providing comprehensive care solutions and patient management systems.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> Patient Management</li>
+                            <li><i class="fas fa-check-circle"></i> Appointment Booking</li>
+                            <li><i class="fas fa-check-circle"></i> Medical Services</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Python Projects -->
+                <div class="project-card python react" data-category="python react">
+                    <div class="project-image">
+                        <img src="images/autodesk.com.jpg" alt="Autodesk">
+                        <div class="project-overlay">
+                            <a href="https://www.autodesk.com/" target="_blank" class="view-btn">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag python-tag">Python</span>
+                            <span class="tag react-tag">React</span>
+                            <span class="tag">Design</span>
+                            <span class="tag">Engineering</span>
+                        </div>
+                        <h3>Autodesk</h3>
+                        <p>Leading design and engineering software platform providing CAD, BIM, and 3D modeling tools for professionals.</p>
+                        <ul class="project-features">
+                            <li><i class="fas fa-check-circle"></i> 3D Modeling Tools</li>
+                            <li><i class="fas fa-check-circle"></i> CAD Software</li>
+                            <li><i class="fas fa-check-circle"></i> Cloud Platform</li>
                         </ul>
                     </div>
                 </div>
