@@ -36,6 +36,11 @@ const demoGalleryImages = [
     { src: 'images/demo.mp4', title: 'Dynamic Product Management Demo', type: 'video' }
 ];
 
+// Gallery data for private chat project (video)
+const privateChatGalleryImages = [
+    { src: 'images/Private-chat-room.mp4', title: 'Private Chat Room Demo', type: 'video' }
+];
+
 let currentImageIndex = 0;
 let currentGalleryType = 'ilumed'; // Track which gallery is currently open
 
@@ -79,6 +84,8 @@ window.scrollToGallery = function(galleryType = 'ilumed') {
         galleryImages = icdGalleryImages;
     } else if (galleryType === 'demo') {
         galleryImages = demoGalleryImages;
+    } else if (galleryType === 'private-chat') {
+        galleryImages = privateChatGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
@@ -155,6 +162,8 @@ window.showGalleryImage = function(index, galleryType = 'ilumed') {
         galleryImages = icdGalleryImages;
     } else if (galleryType === 'demo') {
         galleryImages = demoGalleryImages;
+    } else if (galleryType === 'private-chat') {
+        galleryImages = privateChatGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
@@ -213,6 +222,8 @@ window.navigateGallery = function(direction) {
         galleryImages = icdGalleryImages;
     } else if (galleryType === 'demo') {
         galleryImages = demoGalleryImages;
+    } else if (galleryType === 'private-chat') {
+        galleryImages = privateChatGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
