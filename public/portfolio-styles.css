@@ -329,6 +329,12 @@
     border: 1px solid rgba(255, 69, 0, 0.3);
 }
 
+.project-tags .node-tag {
+    background: rgba(131, 56, 148, 0.15);
+    color: #833834;
+    border: 1px solid rgba(131, 56, 148, 0.3);
+}
+
 .project-tags .wordpress-tag {
     background: rgba(33, 117, 155, 0.15);
     color: #21759B;
@@ -347,7 +353,7 @@
     border: 1px solid rgba(255, 212, 59, 0.3);
 }
 
-.project-tags .tag:not(.laravel-tag):not(.wordpress-tag):not(.react-tag):not(.python-tag) {
+.project-tags .tag:not(.laravel-tag):not(.node-tag):not(.wordpress-tag):not(.react-tag):not(.python-tag) {
     background: rgba(102, 126, 234, 0.15);
     color: var(--primary);
     border: 1px solid rgba(102, 126, 234, 0.3);

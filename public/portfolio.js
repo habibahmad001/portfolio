@@ -41,6 +41,11 @@ const privateChatGalleryImages = [
     { src: 'images/Private-chat-room.mp4', title: 'Private Chat Room Demo', type: 'video' }
 ];
 
+// Gallery data for workshop project (video)
+const workshopGalleryImages = [
+    { src: 'images/workshop.mp4', title: 'Workshop Demo - Real-time Collaboration Platform', type: 'video' }
+];
+
 let currentImageIndex = 0;
 let currentGalleryType = 'ilumed'; // Track which gallery is currently open
 
@@ -86,6 +91,8 @@ window.scrollToGallery = function(galleryType = 'ilumed') {
         galleryImages = demoGalleryImages;
     } else if (galleryType === 'private-chat') {
         galleryImages = privateChatGalleryImages;
+    } else if (galleryType === 'workshop') {
+        galleryImages = workshopGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
@@ -164,6 +171,8 @@ window.showGalleryImage = function(index, galleryType = 'ilumed') {
         galleryImages = demoGalleryImages;
     } else if (galleryType === 'private-chat') {
         galleryImages = privateChatGalleryImages;
+    } else if (galleryType === 'workshop') {
+        galleryImages = workshopGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
@@ -224,6 +233,8 @@ window.navigateGallery = function(direction) {
         galleryImages = demoGalleryImages;
     } else if (galleryType === 'private-chat') {
         galleryImages = privateChatGalleryImages;
+    } else if (galleryType === 'workshop') {
+        galleryImages = workshopGalleryImages;
     } else {
         galleryImages = ilumedGalleryImages;
     }
