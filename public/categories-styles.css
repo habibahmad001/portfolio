@@ -1,0 +1,194 @@
+/* ===== Categories Page Styles ===== */
+
+/* ===== Sticky Category Quick Nav ===== */
+.category-quicknav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.category-chip i {
+    color: var(--primary);
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.category-chip:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: var(--primary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.category-chip.active {
+    background: var(--gradient);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.35);
+}
+
+.category-chip.active i {
+    color: #ffffff;
+}
+
+.chip-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.4rem;
+    height: 1.4rem;
+    padding: 0 0.35rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.category-chip.active .chip-count {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===== Category Sections ===== */
+.categories-showcase {
+    padding-top: 3rem;
+}
+
+.category-section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 90px;
+}
+
+.category-section:last-child {
+    margin-bottom: 2rem;
+}
+
+/* ===== Category Header ===== */
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.25rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: var(--gradient);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.category-icon i {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+.category-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.category-header p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.category-count {
+    margin-left: auto;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    background: rgba(102, 126, 234, 0.12);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Compact cards: slightly smaller banners than portfolio.html */
+.categories-showcase .project-banner {
+    height: 180px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .category-quicknav {
+        position: static;
+    }
+
+    .category-chips {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.25rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-chip {
+        font-size: 0.78rem;
+        padding: 0.45rem 0.85rem;
+    }
+
+    .category-header {
+        gap: 0.9rem;
+    }
+
+    .category-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+    }
+
+    .category-icon i {
+        font-size: 1.15rem;
+    }
+
+    .category-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .category-count {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}
